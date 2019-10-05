@@ -1,0 +1,47 @@
+service: anan
+provider:
+  name: aws
+  runtime: python3.7
+  stage: dev
+  region: us-east-2
+  memorySize: 320
+  timeout: 60
+
+functions:
+  run:
+    handler: handler.run
+
+stepFunctions:
+  stateMachines:
+    testRunner:
+      name: testStateMachine
+      definition:
+        Comment: "Testing in the clouds"
+        StartAt: MapState
+        States:
+          MapState:
+            Type: Map
+            MaxConcurrency: 1000
+            ItemsPath: "$.tests"
+            Iterator:
+              StartAt: Test
+              States:
+                Test:
+                  Type: Task
+                  Resource: arn:aws:states:::lambda:invoke
+                  Parameters:
+                    FunctionName:
+                      Fn::GetAtt: [run, Arn]
+                    Payload:
+                      "Input.$": "$"
+                  End: true
+            End: true
+
+plugins:
+  - serverless-python-requirements
+  - serverless-step-functions
+
+custom:
+  pythonRequirements:
+    pythonBin: python
+    usePoetry: false

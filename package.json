@@ -1,0 +1,10 @@
+{
+  "name": "anan",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-python-requirements": "^5.0.0",
+    "serverless-step-functions": "^2.10.0"
+  }
+}
