@@ -13,12 +13,32 @@ Ideally this plugin will seamlessly
 - reports the test results in a similar manner to running locally
 
 
+## Work remaining
+
+```
+  write more tests for this
+x￼ collect tests
+￼ package function
+  ￼ find code directory, install requirements (ugh), zip
+￼ upload function
+  ￼ read sls cf, find bucket, upload
+￼ infrastructure created?
+  ￼ create
+￼ start step function
+  ￼   get step function from create script
+x   ￼ parse tests and make into expected data structure for step ƒ
+x￼ wait
+x￼ get output
+x￼ parse out into individual runs
+x￼ send to pytest for output
+```
+
+
 ## Install (doesn't work)
 
 pip install pytest-anan
 
 ### Testing this repo
-
 
 ```
 npm install
