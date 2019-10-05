@@ -4,7 +4,7 @@ provider:
   runtime: python3.7
   stage: dev
   region: us-east-2
-  memorySize: 320
+  memorySize: 128
   timeout: 60
 
 functions:
