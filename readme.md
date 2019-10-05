@@ -5,6 +5,13 @@ A pytest plugin to run all tests in parallel via AWS Step Functions
 
 **This is very rough currently**
 
+## Goal
+
+Ideally this plugin will seamlessly
+- create the cloud computing environment to run the tests
+- run the tests in parallel
+- reports the test results in a similar manner to running locally
+
 
 ## Install (doesn't work)
 
